@@ -39,10 +39,11 @@ st.markdown("<h2 style='text-align: center;'><b>Costos</b></h2>", unsafe_allow_h
 
 data = {
     "Foto": ["Imagenes/Madera.jpeg", "Imagenes/NodeMCU.jpeg", "Imagenes/CamESP32.jpg", "Imagenes/TecladoNumerico.png", "Imagenes/Pantalla.jpeg", "Imagenes/RFID.jpg", "Imagenes/Boton.jpeg", "Imagenes/Acelerometro.jpg"],
-    "Material": ["Madera MDF 5mm", "NodeMCU", "Camara ESP32", "Teclado Numérico", "Pantalla LCD", "Lector RFID", "Boton de Emergencia", "Acelerometro"],
+    "Material": ["Madera MDF 5mm", "NodeMCU", "Cámara ESP32", "Teclado Numérico", "Pantalla LCD", "Lector RFID", "Botón de Emergencia", "Acelerómetro"],
     "Cantidad": [1, 1, 1, 1, 1, 1, 1, 1],
-    "Costo": [500, 1000, 150, 750, 100, 500, 200, 300]
+    "Costo": ["$500", "$1,000", "$150", "$750", "$100", "$500", "$200", "$300"]
 }
+
 
 df = pd.DataFrame(data)
 
