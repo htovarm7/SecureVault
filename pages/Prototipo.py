@@ -1,4 +1,6 @@
 import streamlit as st
+import pandas as pd
+import numpy as np
 
 st.markdown("<h1> Prototipo 🚀</h1>",unsafe_allow_html=True)
 st.divider()
@@ -23,12 +25,31 @@ st.divider()
 
 st.markdown("<h2 style='text-align: center;'><b>Materiales</b></h2>",unsafe_allow_html=True)
 
-col1, col2, col3, col4, col5 = st.columns(5)
-col1.image("Imagenes/CamESP32.jpg",caption="Camara ESP32", width=125)
-col2.image("Imagenes/TecladoNumerico.png",caption="Teclado Numérico", width=125)
-col3.image("Imagenes/RFID.jpg",caption="Lector RFID", width=125)
-col4.image("Imagenes/Boton.jpeg",caption="Boton de Emergencia", width=125)
-col5.image("Imagenes/Acelerometro.jpg",caption="Detector de forzado de boveda", width=125)
+col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(6)
+col1.image("Imagenes/Madera.jpeg",caption="Madera MDF 5mm", width=125)
+col2.image("Imagenes/NodeMCU.jpeg",caption="NodeMCU", width=125)
+col3.image("Imagenes/CamESP32.jpg",caption="Camara ESP32", width=125)
+col4.image("Imagenes/TecladoNumerico.png",caption="Teclado Numérico", width=125)
+col5.image("Imagenes/Pantalla.jpeg",caption="Pantalla LCD", width=125)
+col6.image("Imagenes/RFID.jpg",caption="Lector RFID", width=125)
+col7.image("Imagenes/Boton.jpeg",caption="Boton de Emergencia", width=125)
+col8.image("Imagenes/Acelerometro.jpg",caption="Detector de forzado de boveda", width=125)
+
+st.markdown("<h2 style='text-align: center;'><b>Costos</b></h2>", unsafe_allow_html=True)
+
+# Datos personalizados para la tabla
+data = {
+    "Material": ["Madera MDF 5mm" , "Camara ESP32", "Teclado Numérico", "Lector RFID", "Boton de Emergencia", "Acelerometro"],
+    "Cantidad": [1, 5, 5, 5, 5, 5],
+    "Costo Unitario": [50, 200, 30, 150, 20, 100],
+    "Costo Total": [500, 1000, 150, 750, 100, 500]
+    
+}
+
+df = pd.DataFrame(data)
+
+# Mostrar la tabla en Streamlit
+st.table(df)
 st.divider()
 
 st.markdown("<h2><b>Metodologia</b></h2>", unsafe_allow_html=True)
