@@ -47,7 +47,7 @@ data = {
 
 df = pd.DataFrame(data)
 
-st.table(df)
+st.dataframe(df)
 st.divider()
 
 st.markdown("<h2><b>Metodologia</b></h2>", unsafe_allow_html=True)
