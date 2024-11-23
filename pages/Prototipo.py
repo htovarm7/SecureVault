@@ -26,23 +26,22 @@ st.divider()
 st.markdown("<h2 style='text-align: center;'><b>Materiales</b></h2>",unsafe_allow_html=True)
 
 col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
-col1.image("Imagenes/Madera.jpeg",caption="Madera MDF 5mm", width=60)
-col2.image("Imagenes/NodeMCU.jpeg",caption="NodeMCU", width=60)
-col3.image("Imagenes/CamESP32.jpg",caption="Camara ESP32", width=60)
-col4.image("Imagenes/TecladoNumerico.png",caption="Teclado Numérico", width=60)
-col5.image("Imagenes/Pantalla.jpeg",caption="Pantalla LCD", width=60)
-col6.image("Imagenes/RFID.jpg",caption="Lector RFID", width=60)
-col7.image("Imagenes/Boton.jpeg",caption="Boton de Emergencia", width=60)
-col8.image("Imagenes/Acelerometro.jpg",caption="Detector de forzado de boveda", width=60)
+col1.image("Imagenes/Madera.jpeg",caption="Madera MDF 5mm", width=75)
+col2.image("Imagenes/NodeMCU.jpeg",caption="NodeMCU", width=75)
+col3.image("Imagenes/CamESP32.jpg",caption="Camara ESP32", width=75)
+col4.image("Imagenes/TecladoNumerico.png",caption="Teclado Numérico", width=75)
+col5.image("Imagenes/Pantalla.jpeg",caption="Pantalla LCD", width=75)
+col6.image("Imagenes/RFID.jpg",caption="Lector RFID", width=75)
+col7.image("Imagenes/Boton.jpeg",caption="Boton de Emergencia", width=75)
+col8.image("Imagenes/Acelerometro.jpg",caption="Detector de forzado de boveda", width=75)
 
 st.markdown("<h2 style='text-align: center;'><b>Costos</b></h2>", unsafe_allow_html=True)
 
 data = {
-    "Material": ["Madera MDF 5mm" , "Camara ESP32", "Teclado Numérico", "Lector RFID", "Boton de Emergencia", "Acelerometro"],
-    "Cantidad": [1, 5, 5, 5, 5, 5],
-    "Costo Unitario": [50, 200, 30, 150, 20, 100],
-    "Costo Total": [500, 1000, 150, 750, 100, 500]
-    
+    "Foto": ["Imagenes/Madera.jpeg", "Imagenes/NodeMCU.jpeg", "Imagenes/CamESP32.jpg", "Imagenes/TecladoNumerico.png", "Imagenes/Pantalla.jpeg", "Imagenes/RFID.jpg", "Imagenes/Boton.jpeg", "Imagenes/Acelerometro.jpg"],
+    "Material": ["Madera MDF 5mm", "NodeMCU", "Camara ESP32", "Teclado Numérico", "Pantalla LCD", "Lector RFID", "Boton de Emergencia", "Acelerometro"],
+    "Cantidad": [1, 1, 1, 1, 1, 1, 1, 1],
+    "Costo": [500, 1000, 150, 750, 100, 500, 200, 300]
 }
 
 df = pd.DataFrame(data)
