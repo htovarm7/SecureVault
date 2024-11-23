@@ -38,13 +38,13 @@ col8.image("Imagenes/Acelerometro.jpg",caption="Detector de forzado de boveda", 
 st.markdown("<h2 style='text-align: center;'><b>Costos</b></h2>", unsafe_allow_html=True)
 
 data = {
-    "Foto": ["Imagenes/Madera.jpeg", "Imagenes/NodeMCU.jpeg", "Imagenes/CamESP32.jpg", "Imagenes/TecladoNumerico.png", "Imagenes/Pantalla.jpeg", "Imagenes/RFID.jpg", "Imagenes/Boton.jpeg", "Imagenes/Acelerometro.jpg"],
     "Material": ["Madera MDF 5mm", "NodeMCU", "Cámara ESP32", "Teclado Numérico", "Pantalla LCD", "Lector RFID", "Botón de Emergencia", "Acelerómetro"],
     "Cantidad": [1, 1, 1, 1, 1, 1, 1, 1],
-    "Costo": ["$500", "$1,000", "$150", "$750", "$100", "$500", "$200", "$300"]
+    "Lugar": ["Home Depot", "MeracdoLibre", "MercadoLibre", "MercadoLibre", "MercadoLibre", "MercadoLibre", "Steren", "MercadoLibre"],
+    "Costo": ["$299", "$150", "$199", "$60", "$69", "$100", "$20", "$65"]
 }
 
-df = pd.DataFrame(data, columns=["Foto", "Material", "Cantidad", "Costo"], index=range(1, 9))
+df = pd.DataFrame(data)
 
 st.dataframe(df)
 st.divider()
