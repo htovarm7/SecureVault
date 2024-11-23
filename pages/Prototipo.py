@@ -44,7 +44,7 @@ data = {
     "Costo": ["$500", "$1,000", "$150", "$750", "$100", "$500", "$200", "$300"]
 }
 
-df = pd.DataFrame(data)
+df = pd.DataFrame(data, columns=["Foto", "Material", "Cantidad", "Costo"], index=range(1, 9))
 
 st.dataframe(df)
 st.divider()
