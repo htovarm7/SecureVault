@@ -25,7 +25,7 @@ st.divider()
 
 st.markdown("<h2 style='text-align: center;'><b>Materiales</b></h2>",unsafe_allow_html=True)
 
-col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(6)
+col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
 col1.image("Imagenes/Madera.jpeg",caption="Madera MDF 5mm", width=125)
 col2.image("Imagenes/NodeMCU.jpeg",caption="NodeMCU", width=125)
 col3.image("Imagenes/CamESP32.jpg",caption="Camara ESP32", width=125)
@@ -37,7 +37,6 @@ col8.image("Imagenes/Acelerometro.jpg",caption="Detector de forzado de boveda", 
 
 st.markdown("<h2 style='text-align: center;'><b>Costos</b></h2>", unsafe_allow_html=True)
 
-# Datos personalizados para la tabla
 data = {
     "Material": ["Madera MDF 5mm" , "Camara ESP32", "Teclado Numérico", "Lector RFID", "Boton de Emergencia", "Acelerometro"],
     "Cantidad": [1, 5, 5, 5, 5, 5],
@@ -48,7 +47,6 @@ data = {
 
 df = pd.DataFrame(data)
 
-# Mostrar la tabla en Streamlit
 st.table(df)
 st.divider()
 
