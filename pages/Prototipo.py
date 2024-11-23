@@ -40,13 +40,13 @@ st.markdown("<h2 style='text-align: center;'><b>Costos</b></h2>", unsafe_allow_h
 data = {
     "Material": ["Madera MDF 5mm", "NodeMCU", "Cámara ESP32", "Teclado Numérico", "Pantalla LCD", "Lector RFID", "Botón de Emergencia", "Acelerómetro"],
     "Cantidad": [1, 1, 1, 1, 1, 1, 1, 1],
-    "Lugar": ["Home Depot", "MeracdoLibre", "MercadoLibre", "MercadoLibre", "MercadoLibre", "MercadoLibre", "Steren", "MercadoLibre"],
+    "Lugar": ["Home Depot", "MercadoLibre", "MercadoLibre", "MercadoLibre", "MercadoLibre", "MercadoLibre", "Steren", "MercadoLibre"],
     "Costo": ["$299", "$150", "$199", "$60", "$69", "$100", "$20", "$65"]
 }
 
 df = pd.DataFrame(data)
 
-st.dataframe(df)
+st.table(df)
 st.divider()
 
 st.markdown("<h2><b>Metodologia</b></h2>", unsafe_allow_html=True)
