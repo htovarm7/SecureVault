@@ -44,7 +44,6 @@ data = {
     "Costo": ["$500", "$1,000", "$150", "$750", "$100", "$500", "$200", "$300"]
 }
 
-
 df = pd.DataFrame(data)
 
 st.dataframe(df)
