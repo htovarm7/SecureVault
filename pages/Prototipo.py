@@ -5,7 +5,7 @@ import numpy as np
 st.markdown("<h1> Prototipo 🚀</h1>",unsafe_allow_html=True)
 st.divider()
 
-st.markdown("<h2>Descripción del Prototipo</h2>",unsafe_allow_html=True)
+st.markdown("<h2 >Descripción del Prototipo</h2>",unsafe_allow_html=True)
 st.video("https://youtu.be/G_iDkolIcTk")
 st.caption("Video del Prototipo")
 st.markdown("<h2>Características del Prototipo</h2>",unsafe_allow_html=True)
@@ -44,7 +44,6 @@ data = {
 }
 
 df = pd.DataFrame(data)
-
 st.dataframe(df)
 st.divider()
 
