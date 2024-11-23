@@ -46,8 +46,9 @@ data = {
 df = pd.DataFrame(data)
 
 st.dataframe(df)
-st.markdown("<h2><b>Costo total del prototipo es de $1152.00 MXN</b></h2>.") 
-st.markdown("<h3>El costo total del <b>material fisico fue de $952.00 MXN + $200 MXN de diseño</b>.")
+st.write("")
+st.markdown("<h2><b>Costo total del prototipo es de $1152.00 MXN</b></h2>.", unsafe_allow_html=True) 
+st.markdown("<h3>El costo total del <b>material fisico fue de $952.00 MXN + $200 MXN de diseño</b>.", unsafe_allow_html=True)
 st.divider()
 
 st.markdown("<h2><b>Metodologia</b></h2>", unsafe_allow_html=True)
