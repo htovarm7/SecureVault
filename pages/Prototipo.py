@@ -44,7 +44,7 @@ data = {
 }
 
 df = pd.DataFrame(data)
-st.table(df)
+st.dataframe(df, width=800)
 st.divider()
 
 st.markdown("<h2><b>Costo total del prototipo es de $1152.00 MXN.</b></h2>", unsafe_allow_html=True) 
