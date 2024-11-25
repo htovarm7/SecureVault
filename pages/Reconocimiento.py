@@ -62,16 +62,31 @@ if uploaded_file is not None:
     
     description = " ".join(face_descriptions)
     
-    # Use GPT model to generate a detailed description
-try:
-    response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
-        messages=[
-            {"role": "system", "content": "You are a human."},
-            {"role": "user", "content": f"Describe the following person: {description}"}
-        ]
-    )
-    st.markdown(response['choices'][0]['message']['content'])
-except Exception as e:
-    st.error("Ocurrió un error al procesar la solicitud con OpenAI.")
-    st.markdown(response['choices'][0]['message']['content'])
+# Función para generar una descripción detallada usando la API de OpenAI
+def generate_description(description):
+    # Corregir el error tipográfico "rasgoz" -> "rasgos"
+    prompt = "Describe la imagen de la persona basándote en sus rasgos físicos como posible nacionalidad, género, color de pelo, color de ojos, etc."
+    
+    try:
+        # Llamada a la API de OpenAI para generar la respuesta
+        response = openai.Completion.create(
+            engine="davinci",
+            prompt=prompt,
+            max_tokens=150,  # Aumenté los tokens para obtener una respuesta más detallada
+            temperature=0.7   # Temperatura moderada para obtener respuestas variadas pero coherentes
+        )
+        
+        # Retornar solo el texto generado por la API
+        return response.choices[0].text.strip()
+    
+    except Exception as e:
+        return f"Error al generar la descripción: {e}"
+
+# Interfaz de Streamlit
+st.markdown("<h2>Descripción de la persona identificada</h2>", unsafe_allow_html=True)
+
+# Obtener la descripción generada por la IA
+response = generate_description(description)
+
+# Mostrar la respuesta en Streamlit
+st.write(response)  # Usamos st.write para mostrar la respuesta generada
