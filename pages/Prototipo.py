@@ -23,7 +23,7 @@ st.markdown("<h2><b>¿Brinda una solución?</b> ✅</h2>",unsafe_allow_html=True
 st.write("Concluimos que el prototipo brinda efectivamente la solución a la problemática que es brindarle seguridad a las instituciones financieras.  Gracias a nuestra implementacion de sensores y actuadores, junto con registro de datos de estos mismos en tiempo real, podemos analizar los datos y utilizar para prevenir y reforzar aun mas la seguridad.")
 st.divider()
 
-st.markdown("<h2 style='text-align: center;'><b>Materiales</b></h2>",unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center;'><b>Materiales</b> 🛠</h2>",unsafe_allow_html=True)
 
 col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
 col1.image("Imagenes/Madera.jpeg",caption="Madera MDF 5mm", width=75)
