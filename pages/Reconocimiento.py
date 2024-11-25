@@ -5,7 +5,6 @@ import cv2
 import numpy as np
 import os
 
-
 from PIL import Image
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
