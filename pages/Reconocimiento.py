@@ -1,6 +1,6 @@
 import streamlit as st
 import secrets as sc
-import openai
+import openai as openai
 import cv2
 import numpy as np
 import os
