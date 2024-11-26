@@ -23,7 +23,7 @@ if uploaded_file is not None:
     except Exception as e:
         st.error("Por favor, sube un archivo válido.")
         st.stop()
-
+    
     st.markdown("<h2>Descripción de la persona identificada</h2>", unsafe_allow_html=True)
 
     response = openai.ChatCompletion.create(
