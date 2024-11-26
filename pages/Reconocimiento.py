@@ -1,9 +1,8 @@
 import streamlit as st
-import os
-from openai import OpenAI
+import openai
 from PIL import Image
 
-client = OpenAI(api_key = st.secrets("OPENAI_API_KEY"))
+openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 st.markdown("<h1> Reconocimiento Facial 👤</h1>", unsafe_allow_html=True)
 st.markdown("<h2>Descripción del Reconocimiento Facial</h2>", unsafe_allow_html=True)
@@ -17,11 +16,31 @@ st.markdown("""
             """)
 uploaded_file = st.file_uploader("Subir imagen para hacer reconocimiento facial", type=["jpg", "png", "jpeg"])
 
-try:
-    image = Image.open(uploaded_file)
-except Exception as e:
-    st.error("Por favor, sube un archivo válido.")
-    st.stop()
+if uploaded_file is not None:
+    try:
+        image = Image.open(uploaded_file)
+        st.image(image, caption='Imagen subida', use_column_width=True)
+    except Exception as e:
+        st.error("Por favor, sube un archivo válido.")
+        st.stop()
 
-# Interfaz de Streamlit
-st.markdown("<h2>Descripción de la persona identificada</h2>", unsafe_allow_html=True)
+    st.markdown("<h2>Descripción de la persona identificada</h2>", unsafe_allow_html=True)
+
+    response = openai.ChatCompletion.create(
+        model="gpt-4",
+        messages=[
+            {
+                "role": "user", 
+                "content": (
+                    f"Describe the person in the image, including their race, eye color, facial features, "
+                    "and any other distinguishing characteristics."
+                )
+            }
+        ]
+    )
+
+    description = response['choices'][0]['message']['content']
+    st.markdown(description)
+else:
+    st.info("Por favor, sube una imagen para continuar.")
+
