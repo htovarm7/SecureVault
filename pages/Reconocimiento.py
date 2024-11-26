@@ -1,11 +1,9 @@
 import streamlit as st
-import secrets as sc
-import OpenAi as openai
+from openai import OpenAI
 import os
-
 from PIL import Image
 
-openai.api_key = st.secrets("OPENAI_API_KEY")
+client = OpenAI(api_key = st.secrets("OPENAI_API_KEY"))
 
 st.markdown("<h1> Reconocimiento Facial 👤</h1>", unsafe_allow_html=True)
 st.markdown("<h2>Descripción del Reconocimiento Facial</h2>", unsafe_allow_html=True)
