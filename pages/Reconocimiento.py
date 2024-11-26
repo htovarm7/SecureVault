@@ -1,8 +1,8 @@
 import streamlit as st
-import openai
+from openai import OpenAI
 from PIL import Image
 
-openai.api_key = st.secrets["OPENAI_API_KEY"]
+OpenAI.api_key = st.secrets["OPENAI_API_KEY"]
 
 st.markdown("<h1> Reconocimiento Facial 👤</h1>", unsafe_allow_html=True)
 st.markdown("<h2>Descripción del Reconocimiento Facial</h2>", unsafe_allow_html=True)
@@ -26,7 +26,7 @@ if uploaded_file is not None:
     
     st.markdown("<h2>Descripción de la persona identificada</h2>", unsafe_allow_html=True)
 
-    response = openai.ChatCompletion.create(
+    response = OpenAI.ChatCompletion.create(
         model="gpt-4",
         messages=[
             {
