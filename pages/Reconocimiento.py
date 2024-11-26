@@ -2,6 +2,18 @@ import streamlit as st
 from openai import OpenAI
 from PIL import Image
 
+import os
+import sys
+import subprocess
+
+# Instalar openai si no está instalado
+try:
+    import openai
+except ModuleNotFoundError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "openai"])
+    import openai
+
+
 OpenAI.api_key = st.secrets["OPENAI_API_KEY"]
 
 st.markdown("<h1> Reconocimiento Facial 👤</h1>", unsafe_allow_html=True)
