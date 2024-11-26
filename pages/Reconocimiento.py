@@ -1,6 +1,6 @@
 import streamlit as st
 import secrets as sc
-import openai
+import OpenAi as openai
 import os
 
 from PIL import Image
