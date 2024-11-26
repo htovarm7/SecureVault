@@ -1,3 +1,0 @@
-MODE = EGRESS
-TYPE = https://securevault.streamlit.app/
-VALUE_LIST = ("api.openai.com");
