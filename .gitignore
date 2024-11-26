@@ -1,2 +1,2 @@
 # Archivo .gitignore
-secrets.toml
+.streamlit/secrets.toml
