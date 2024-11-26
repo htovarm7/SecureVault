@@ -1,18 +1,16 @@
 import streamlit as st
-from openai import OpenAI
+import openai
 
-OpenAI.api_key = st.secrets["OPENAI_API_KEY"]
+# Configura tu clave API de OpenAI
+openai.api_key = st.secrets["OPEN_AI_KEY"]  # Usa Streamlit Secrets
 
-st.title("Prueba de OpenAI API")
+# Realiza la solicitud a la API de OpenAI
+completion = openai.ChatCompletion.create(
+    model="gpt-4",  # Asegúrate de usar el nombre correcto del modelo
+    messages=[
+        {"role": "user", "content": "write a haiku about ai"}
+    ]
+)
 
-if st.button("Probar conexión"):
-    try:
-        response = OpenAI.Completion.create(
-            engine="text-davinci-003",
-            prompt="Hola, ¿puedes responder a esta prueba?",
-            max_tokens=50,
-            temperature=0.7
-        )
-        st.success("Conexión exitosa: " + response.choices[0].text.strip())
-    except Exception as e:
-        st.error(f"Error: {e}")
+# Muestra la respuesta de la API
+st.write(completion['choices'][0]['message']['content'])
