@@ -1,5 +1,6 @@
 import streamlit as st
 import openai
+from PIL import Image
 
 # Configuración de la clave API de OpenAI
 client = openai.OpenAI(api_key=st.secrets["OPEN_AI_KEY"])
