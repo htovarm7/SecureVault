@@ -1,16 +1,17 @@
 import streamlit as st
-import openai
+from openai import OpenAI
 
 # Configura tu clave API de OpenAI
-openai.api_key = st.secrets["OPEN_AI_KEY"]  # Usa Streamlit Secrets
+client = OpenAI(api_key = st.secrets["OPEN_AI_KEY"])  # Usa Streamlit Secrets
 
 # Realiza la solicitud a la API de OpenAI
-completion = openai.ChatCompletion.create(
+completion = client.chat.completions.create(
     model="gpt-4",  # Asegúrate de usar el nombre correcto del modelo
     messages=[
         {"role": "user", "content": "write a haiku about ai"}
-    ]
+    ],
+    max_tokens = 100,
+    temperature = 0.7
 )
 
-# Muestra la respuesta de la API
-st.write(completion['choices'][0]['message']['content'])
+print(completion.choices[0].message.content)

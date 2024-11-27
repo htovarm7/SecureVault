@@ -2,7 +2,7 @@ import streamlit as st
 from openai import OpenAI
 from PIL import Image
 
-OpenAI.api_key = st.secrets["OPENAI_API_KEY"]
+client = OpenAI(api_key = st.secrets["OPEN_AI_KEY"]) 
 
 st.markdown("<h1> Reconocimiento Facial 👤</h1>", unsafe_allow_html=True)
 st.markdown("<h2>Descripción del Reconocimiento Facial</h2>", unsafe_allow_html=True)
@@ -17,33 +17,35 @@ st.markdown("""
 
 
 
-# uploaded_file = st.file_uploader("Subir imagen para hacer reconocimiento facial", type=["jpg", "png", "jpeg"])
+uploaded_file = st.file_uploader("Subir imagen para hacer reconocimiento facial", type=["jpg", "png", "jpeg"])
 
-# if uploaded_file is not None:
-#     try:
-#         image = Image.open(uploaded_file)
-#         st.image(image, caption='Imagen subida', use_column_width=True)
-#     except Exception as e:
-#         st.error("Por favor, sube un archivo válido.")
-#         st.stop()
+if uploaded_file is not None:
+    try:
+        image = Image.open(uploaded_file)
+        st.image(image, caption='Imagen subida', use_column_width=True)
+    except Exception as e:
+        st.error("Por favor, sube un archivo válido.")
+        st.stop()
     
-#     st.markdown("<h2>Descripción de la persona identificada</h2>", unsafe_allow_html=True)
+    st.markdown("<h2>Descripción de la persona identificada</h2>", unsafe_allow_html=True)
 
-#     response = OpenAI.ChatCompletion.create(
-#         model="gpt-4",
-#         messages=[
-#             {
-#                 "role": "user", 
-#                 "content": (
-#                     f"Describe the person in the image, including their race, eye color, facial features, "
-#                     "and any other distinguishing characteristics."
-#                 )
-#             }
-#         ]
-#     )
+    response = client.chat.completions.create(
+        model="gpt-4",
+        messages=[
+            {
+                "role": "user", 
+                "content": (
+                    f"Describe the person in the image, including their race, eye color, facial features, "
+                    "and any other distinguishing characteristics."
+                )
+            }
+        ],
+        max_tokens = 400,
+        temperature = 0.7,
+    )
 
-#     description = response['choices'][0]['message']['content']
-#     st.markdown(description)
-# else:
-#     st.info("Por favor, sube una imagen para continuar.")
+    description = response.choices[0].message.content
+    st.markdown(description)
+else:
+    st.info("Por favor, sube una imagen para continuar.")
 
