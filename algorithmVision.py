@@ -1,49 +1,63 @@
 import streamlit as st
-from openai import OpenAI
+import cv2
+import numpy as np
 from PIL import Image
+from openai import OpenAI
 
-client = OpenAI(api_key = st.secrets["OPEN_AI_KEY"]) 
+client = OpenAI(api_key=st.secrets["OPEN_AI_KEY"])
 
-st.markdown("<h1> Reconocimiento Facial 👤</h1>", unsafe_allow_html=True)
-st.markdown("<h2>Descripción del Reconocimiento Facial</h2>", unsafe_allow_html=True)
+st.markdown("<h1>Reconocimiento Facial 👤</h1>", unsafe_allow_html=True)
+
+# Descripción del proyecto
 st.markdown("""
-            Como parte de nuestro proyecto final, hemos desarrollado un sistema de reconocimiento facial diseñado para identificar a una persona a partir de una imagen. Para lograrlo, utilizamos la biblioteca OpenCV en combinación con un modelo GPT, que proporciona una descripción detallada de la persona identificada, permitiendo obtener resultados precisos y enriquecidos.            
-            """)
+    Como parte de nuestro proyecto final, hemos desarrollado un sistema de reconocimiento facial diseñado para identificar a una persona a partir de una imagen.
+""")
 
-st.markdown("<h2>Subir imagen para hacer reconocimiento facial</h2>", unsafe_allow_html=True)
-st.markdown("""
-            Para realizar el reconocimiento facial, sube una imagen de una persona y presiona el botón de 'Analizar imagen'. Una vez que se haya procesado la imagen, se mostrará la imagen con un recuadro alrededor de la cara identificada y una descripción de la persona.            
-            """)
-
-uploaded_file = st.file_uploader("Subir imagen para hacer reconocimiento facial", type=["jpg", "png", "jpeg"])
+# Subir imagen
+uploaded_file = st.file_uploader("Sube una imagen para hacer reconocimiento facial", type=["jpg", "png", "jpeg"])
 
 if uploaded_file is not None:
     try:
         image = Image.open(uploaded_file)
-        st.image(image, caption='Imagen subida', use_column_width=True)
+        st.image(image, caption="Imagen subida", use_column_width=True)
+        
+        # Convertir imagen a un formato adecuado para OpenCV
+        open_cv_image = np.array(image.convert('RGB'))
+        gray = cv2.cvtColor(open_cv_image, cv2.COLOR_RGB2GRAY)
+        
+        # Cargar el clasificador en cascada de OpenCV para detección facial
+        face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+        
+        # Detectar caras en la imagen
+        faces = face_cascade.detectMultiScale(gray, 1.1, 4)
+        
+        # Dibujar un rectángulo alrededor de la cara detectada
+        for (x, y, w, h) in faces:
+            cv2.rectangle(open_cv_image, (x, y), (x + w, y + h), (255, 0, 0), 2)
+        
+        # Mostrar la imagen con el rectángulo
+        image_with_box = Image.fromarray(open_cv_image)
+        st.image(image_with_box, caption="Imagen con cara detectada", use_column_width=True)
+
+        # Descripción de la persona
+        st.markdown("<h2>Descripción de la persona identificada</h2>", unsafe_allow_html=True)
+        
+        # Generar descripción con GPT
+        response = client.chat.completions.create(
+            model="gpt-4",
+            messages=[{
+                "role": "user",
+                "content": "Describe a la persona en la imagen basándote en características generales como raza, color de ojos, y otros rasgos distintivos."
+            }],
+            max_tokens=400,
+            temperature=0.7,
+        )
+        
+        description = response.choices[0].message.content
+        st.markdown(description)
+
     except Exception as e:
-        st.error("Por favor, sube un archivo válido.")
+        st.error("Hubo un error procesando la imagen.")
         st.stop()
-    
-    st.markdown("<h2>Descripción de la persona identificada</h2>", unsafe_allow_html=True)
-
-    response = client.chat.completions.create(
-        model="gpt-4",
-        messages=[
-            {
-                "role": "user", 
-                "content": (
-                    f"Describe the person in the image, including their race, eye color, facial features, "
-                    "and any other distinguishing characteristics."
-                )
-            }
-        ],
-        max_tokens = 400,
-        temperature = 0.7,
-    )
-
-    description = response.choices[0].message.content
-    st.markdown(description)
 else:
     st.info("Por favor, sube una imagen para continuar.")
-
