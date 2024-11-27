@@ -74,12 +74,14 @@ void setup() {
   config.pin_sscb_scl = SIOC_GPIO_NUM;
   config.pin_pwdn = PWDN_GPIO_NUM;
   config.pin_reset = RESET_GPIO_NUM;
-  config.xclk_freq_hz = 20000000;
   config.pixel_format = PIXFORMAT_JPEG;
 
-  config.frame_size = FRAMESIZE_CIF;
-  config.jpeg_quality = 12;
-  config.fb_count = 1;
+  config.frame_size = FRAMESIZE_QVGA; // Resolución menor
+  // config.xclk_freq_hz = 24000000;    // Mayor frecuencia de reloj
+  config.xclk_freq_hz = 20000000;
+  config.jpeg_quality = 20;          // Menor calidad JPEG
+  config.fb_count = 2;               // Búfer de fotogramas aumentado
+
 
   // Se inicializa de la cámara
   esp_err_t err = esp_camera_init(&config);
