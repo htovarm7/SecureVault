@@ -24,11 +24,11 @@ st.markdown("<h2>¿Por qué es importante el Reconocimiento Facial? 📍</h2>", 
 st.markdown("""
             El reconocimiento facial tiene diversas aplicaciones en la actualidad, desde la seguridad y la vigilancia hasta la autenticación biométrica y el marketing personalizado. Algunos de los usos más comunes del reconocimiento facial incluyen el desbloqueo de dispositivos móviles, el acceso a edificios y eventos, la identificación de sospechosos en investigaciones criminales, la personalización de anuncios y recomendaciones en línea, entre otros.
             """)
-st.image("Imagenes/SeBusca.jpg", caption="Imagen de una persona buscada")
+st.image("Imagenes/SeBusca.jpg", caption="Imagen de una persona buscada",  use_container_width = True)
 
 st.markdown("<h2>Subir imagen para hacer reconocimiento facial 📷</h2>", unsafe_allow_html=True)
 st.markdown("""
-            Para realizar el reconocimiento facial, sube una imagen de una persona y presiona el botón de 'Analizar imagen'. Una vez que se haya procesado la imagen, se mostrará la imagen con un recuadro alrededor de la cara identificada y una descripción de la persona.            
+            Para realizar el reconocimiento facial, sube una imagen de una persona.            
             """)
 
 uploaded_file = st.file_uploader("Sube una imagen para hacer reconocimiento facial", type=["jpg", "png", "jpeg"])
