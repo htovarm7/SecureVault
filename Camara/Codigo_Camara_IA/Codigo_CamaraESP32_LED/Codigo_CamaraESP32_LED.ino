@@ -22,7 +22,7 @@
 // TEC
 const char* ssid = "Tec-IoT";
 const char* password = "spotless.magnetic.bridge";
-String URL = "http://10.22.235.227:5074/Sensores";
+String URL = "http://10.22.225.125:5074/Sensores";
 
 // Inicialización de servidor web en el puerto 80 y configuración del DHT
 WebServer server(80);
@@ -104,7 +104,6 @@ void setup() {
   Serial.print(WiFi.localIP());
   Serial.println("' para conectar");
 
-  timeClient.begin();
 }
 
 void loop() {
