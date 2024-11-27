@@ -35,7 +35,7 @@ WiFiClient wClient;
 // Variable booleana para la deteccion de rostro
 bool deteccionRostro = false;
 long milisegundos = 0;
-int intervalo = 10000;
+int intervalo = 30000;
 
 // Se llama la funcion que inicializa  la cámara
 void startCameraServer();
