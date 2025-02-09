@@ -34,20 +34,28 @@ Here are some images of the Secure Vault model:
 
 ![3D View](./Images/3D.png)  
 *3D model made in SolidWorks*
+
 The initial and main objective of this project was to provide greater security for banks.  
 We chose different types of sensors, and the result we obtained was exactly as we expected.  
 
 ![Employee Area](./Images/ZonaEmpleados.png)  
 *Employee Area.*
-There is an alert button that is activated when a bank employee notices an emergency, and this action results in a WhatsApp message requesting immediate help.
+
+There is an alert button that is activated when a bank employee notices an emergency,
+and this action results in a WhatsApp message requesting immediate help.
 
 ![File area](./Images/ZonadeArchivos.png)  
 *File Area.*
-The RFID sensor uses cards that employees will have to enter the file room. If the card is valid, two short beeps will sound, and the door will open using the servomotor. If the card is invalid, a long beep will sound.
+
+The RFID sensor uses cards that employees will have to enter the file room. 
+If the card is valid, two short beeps will sound, and the door will open using the servomotor. 
+If the card is invalid, a long beep will sound.
 
 ![Vault area](./Images/ZonaBoveda.png)
 *Vault Area*
-Finally, we have the 3 sensors inside the vault: the facial sensor , which turns on a green LED when it detects a recognized face, and a red LED when it doesn't; a matrix keypad with its screen that detects whether the code is correct or incorrect; and a motion sensor that detects any forced entry into the vault. All these sensors send the following information to the same database: the registration number, the employee interacting with them, the area, the type of sensor, and the date with time. The combination of sensors and actuators, along with the database, will help develop indicators to further analyze employee behavior and even prevent potential attacks on the bank.
+
+Finally, we have the 3 sensors inside the vault: the facial sensor , which turns on a green LED when it detects a recognized face, and a red LED when it doesn't; a matrix keypad with its screen that detects whether the code is correct or incorrect; and a motion sensor that detects any forced entry into the vault. 
+All these sensors send the following information to the same database: the registration number, the employee interacting with them, the area, the type of sensor, and the date with time. The combination of sensors and actuators, along with the database, will help develop indicators to further analyze employee behavior and even prevent potential attacks on the bank.
 
 ## Contact  
 
