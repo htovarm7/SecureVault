@@ -32,7 +32,7 @@ Secure Vault is a security software designed for banks, focused on enhancing phy
 
 Here are some images of the Secure Vault model:
 
-![3D View](./images/3D.png)  
+![3D View](./Images/3D.png)  
 *Front view of the Secure Vault system.*
 
 ![Side View](https://example.com/side_view.jpg)  
