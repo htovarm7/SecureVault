@@ -32,25 +32,25 @@ Secure Vault is a security software designed for banks, focused on enhancing phy
 
 Here are some images of the Secure Vault model:
 
-![3D View](./Images/3D.png)  
+![3D View](./Imagenes/3D.png)  
 *3D model made in SolidWorks*  
 
 The initial and main objective of this project was to provide greater security for banks.  
 We chose different types of sensors, and the result we obtained was exactly as we expected.  
 
-![Employee Area](./Images/ZonaEmpleados.png)  
+![Employee Area](./Imagenes/ZonaEmpleados.png)  
 *Employee Area.*
 
 There is an alert button that is activated when a bank employee notices an emergency, and this action results in a WhatsApp message requesting immediate help.
 
-![File area](./Images/ZonadeArchivos.png)  
+![File area](./Imagenes/ZonadeArchivos.png)  
 *File Area.*  
 
 The RFID sensor uses cards that employees will have to enter the file room.  
 If the card is valid, two short beeps will sound, and the door will open using the servomotor.  
 If the card is invalid, a long beep will sound.  
 
-![Vault area](./Images/ZonaBoveda.png)  
+![Vault area](./Imagenes/ZonaBoveda.png)  
 *Vault Area.*  
 
 Finally, we have the 3 sensors inside the vault: the facial sensor, which turns on a green LED when it detects a recognized face,  
